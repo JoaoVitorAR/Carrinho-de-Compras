@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Mercadinho God</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <label>Descrição:</label>
+            <p:growl id="growl" life="3000"/>
+            <label>Nome</label>
+            <p:inputText value="#{produtoMB.produto.nome}" required="true" requiredMessage="Nome Produto é obrigatoria!"/>
+            <br/><br/>
+            <label>Descrição</label>
+            <p:inputText value="#{produtoMB.produto.descricao}" required="true" requiredMessage="Descrição é obrigatoria!"/>
+            <br/><br/>
+            <label>Preço</label>
+            <p:inputText value="#{produtoMB.produto.preco}" required="true" requiredMessage="Preço é obrigatoria!"/>
+            <br/><br/><br/>
+            <p:commandButton action="#{produtoMB.alterar()}" value="Alterar"/>
+            <br/>
+            <p:commandButton action="#{produtoMB.excluir(produto)}" value="Cancelar" immediate="true"/>
+        </h:form>
+    </h:body>
+</html>

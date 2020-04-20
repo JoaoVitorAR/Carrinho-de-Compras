@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Mercadinho God</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <h1>Cadastro de Produto</h1>
+        <p:dataTable value="${produtoMB.produtos}" var="produto"
+            emptyMessage="Nenhum registro encontrado">
+            <p:column headerText="Nome" width="50">
+                #{produto.nome}
+            </p:column>
+            <p:column headerText="Descrição" width="80">
+                #{produto.descricao}
+            </p:column>
+            <p:column headerText="Preço" width="50"> 
+                #{produto.preco}
+            </p:column>
+            <p:column headerText="Editar" width="10">
+                <p:commandLink value="Editar" action="#{produtoMB.buscarDados(produto)}"/>  
+            </p:column>
+            <p:column headerText="Excluir" width="10">
+                <p:commandLink value="Excluir" action="#{produtoMB.excluir(produto)}"
+                               onclick="if (!confirm('Confirmar a exclusão ?')) return false"/>
+            </p:column>
+        </p:dataTable>
+        <br/>
+        <p:commandButton id="novo" value="Novo" action="#{produtoMB.novo()}"/>
+        <br/><br/>
+        <p:commandButton id="voltar" value="Voltar" action="/index.xhtml"/>
+        </h:form>
+    </h:body>
+</html>
